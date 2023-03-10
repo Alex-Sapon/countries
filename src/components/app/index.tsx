@@ -1,14 +1,14 @@
+import { PATH } from 'constants/paths';
+
 import { Home } from 'pages/Home';
 import { NotFound } from 'pages/NotFound';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
   return (
-    <HashRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </HashRouter>
+    <Routes>
+      <Route path={PATH.HOME} element={<Home />} />
+      <Route path={PATH.NOT_FOUND} element={<NotFound />} />
+    </Routes>
   );
 };
