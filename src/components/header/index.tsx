@@ -21,7 +21,7 @@ export const Header = () => {
           <Title>Where is the world?</Title>
           <SwitchMode onClick={changeTheme}>
             {theme === 'light' ? <IoMoon /> : <IoMoonOutline />}
-            <span>{theme} Theme</span>
+            <span>{theme} Mode</span>
           </SwitchMode>
         </Wrapper>
       </Container>
