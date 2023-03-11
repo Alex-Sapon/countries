@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 
 import { App } from 'components/app';
 import './index.css';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <HashRouter>
-    <App />g
-  </HashRouter>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );

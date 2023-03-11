@@ -2,9 +2,10 @@ import { PATH } from 'constants/paths';
 
 import styled from 'styled-components';
 
-export const HeaderStyled = styled.header`
+export const HeaderContainer = styled.header`
   box-shadow: var(--shadow);
   background-color: var(--color-bg);
+  margin-bottom: 50px;
 `;
 
 export const Wrapper = styled.div`
@@ -27,8 +28,8 @@ export const SwitchMode = styled.div`
 export const Title = styled.a.attrs({
   href: PATH.HOME,
 })`
-  color: var(--color-text);
   text-decoration: none;
+  color: var(--color-text);
   font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
 `;

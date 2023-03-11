@@ -40,7 +40,11 @@
             "group": "external",
             "position": "before"
           }
-        ]
+        ],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
       }
     ]
   }

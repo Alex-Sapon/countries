@@ -19,7 +19,8 @@
     "paths": {
       "components/*": ["components/*"],
       "pages/*": ["pages/*"],
-      "constants/*": ["constants/*"]
+      "constants/*": ["constants/*"],
+      "modules/*": ["modules/*"]
     }
   },
   "include": [

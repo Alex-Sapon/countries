@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Container } from 'components/container/styles';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
 
-import { HeaderStyled, SwitchMode, Title, Wrapper } from './styles';
+import { HeaderContainer, SwitchMode, Title, Wrapper } from './styles';
 
 export const Header = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
@@ -15,16 +15,16 @@ export const Header = () => {
   }, [theme]);
 
   return (
-    <HeaderStyled>
+    <HeaderContainer>
       <Container>
         <Wrapper>
           <Title>Where is the world?</Title>
           <SwitchMode onClick={changeTheme}>
             {theme === 'light' ? <IoMoon /> : <IoMoonOutline />}
-            <span>{theme} mode</span>
+            <span>{theme} Theme</span>
           </SwitchMode>
         </Wrapper>
       </Container>
-    </HeaderStyled>
+    </HeaderContainer>
   );
 };
