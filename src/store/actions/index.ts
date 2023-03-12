@@ -1,0 +1,1 @@
+import { CountryType } from 'store/types';export const setCountries = (countries: CountryType[]) => ({  type: 'SET_COUNTRIES',  payload: {    countries  }} as const);

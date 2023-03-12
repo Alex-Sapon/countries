@@ -20,7 +20,11 @@
       "components/*": ["components/*"],
       "pages/*": ["pages/*"],
       "constants/*": ["constants/*"],
-      "modules/*": ["modules/*"]
+      "modules/*": ["modules/*"],
+      "store/*": ["store/*"],
+      "sagas/*": ["sagas/*"],
+      "api/*": ["api/*"],
+      "utils/*": ["utils/*"]
     }
   },
   "include": [

@@ -18,21 +18,23 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "@typescript-eslint", "prettier", "import"],
+  "plugins": [ "react", "@typescript-eslint", "prettier", "import" ],
   "rules": {
-    "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-    "@typescript-eslint/quotes": ["error", "single"],
+    "func-names": ["error", "never"],
+    "@typescript-eslint/default-param-last": 0,
+    "import/no-extraneous-dependencies": [ "error", { "devDependencies": true } ],
+    "@typescript-eslint/quotes": [ "error", "single" ],
     "react/react-in-jsx-scope": 0,
     "import/prefer-default-export": "off",
     "react/function-component-definition": [
       2,
-      {"namedComponents": "arrow-function", "unnamedComponents": "arrow-function"}
+      { "namedComponents": "arrow-function", "unnamedComponents": "arrow-function" }
     ],
     "import/order": [
       "error",
       {
-        "pathGroupsExcludedImportTypes": ["react"],
-        "groups": ["builtin", "external", "internal"],
+        "pathGroupsExcludedImportTypes": [ "react" ],
+        "groups": [ "builtin", "external", "internal" ],
         "newlines-between": "always",
         "pathGroups": [
           {
@@ -46,6 +48,10 @@
           "caseInsensitive": true
         }
       }
+    ],
+    "prettier/prettier": [
+      "off",
+      { "endOfLine": "auto" }
     ]
   }
 }

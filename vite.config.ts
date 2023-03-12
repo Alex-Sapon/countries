@@ -10,6 +10,10 @@ export default defineConfig({
       pages: '/src/pages',
       constants: '/src/constants',
       modules: '/src/modules',
+      store: '/src/store',
+      sagas: '/src/sagas',
+      api: '/src/api',
+      utils: '/src/utils',
     },
   },
 });

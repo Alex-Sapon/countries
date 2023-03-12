@@ -1,32 +1,18 @@
 import { Card } from 'components/card';
 import { Container } from 'components/container/styles';
+import { useSelector } from 'react-redux';
+import { selectCountries } from 'store/selectors';
 
 import { CountriesWrapper } from './styles';
 
-type CountrieType = {
-  title: string;
-  population: number;
-  region: string;
-  capital: string;
-};
-
-const countries: CountrieType[] = [
-  { title: 'Germany', population: 40000, region: 'Europe', capital: 'Berlin' },
-  { title: 'Germany', population: 40000, region: 'Europe', capital: 'Berlin' },
-  { title: 'Germany', population: 40000, region: 'Europe', capital: 'Berlin' },
-  { title: 'Germany', population: 40000, region: 'Europe', capital: 'Berlin' },
-  { title: 'Germany', population: 40000, region: 'Europe', capital: 'Berlin' },
-  { title: 'Germany', population: 40000, region: 'Europe', capital: 'Berlin' },
-  { title: 'Germany', population: 40000, region: 'Europe', capital: 'Berlin' },
-  { title: 'Germany', population: 40000, region: 'Europe', capital: 'Berlin' },
-];
-
 export const Countries = () => {
+  const countries = useSelector(selectCountries);
+
   return (
     <Container>
       <CountriesWrapper>
-        {countries.map((countrie) => (
-          <Card key={countrie.title} />
+        {countries.map(country => (
+          <Card key={country.name.common} country={country} />
         ))}
       </CountriesWrapper>
     </Container>

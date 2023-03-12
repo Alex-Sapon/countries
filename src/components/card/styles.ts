@@ -8,24 +8,26 @@ export const CardWrapper = styled.div`
   box-shadow: var(--shadow);
 `;
 
-export const Image = styled.image`
+export const CardImage = styled.img`
   width: 100%;
   height: 200px;
   display: block;
   object-fit: cover;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
 `;
 
-export const Description = styled.div`
+export const CardBody = styled.div`
   padding: 25px;
   font-family: var(--family);
 `;
 
-export const Title = styled.h3`
+export const CardTitle = styled.h3`
   margin-bottom: 15px;
   font-size: var(--fs-md);
 `;
 
-export const Subtitle = styled.p`
+export const CardSubtitle = styled.p`
   margin-bottom: 5px;
   font-size: var(--fs-sm);
 `;

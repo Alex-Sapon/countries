@@ -5,7 +5,9 @@ import styled from 'styled-components';
 export const HeaderContainer = styled.header`
   box-shadow: var(--shadow);
   background-color: var(--color-bg);
-  margin-bottom: 50px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
 `;
 
 export const Wrapper = styled.div`
