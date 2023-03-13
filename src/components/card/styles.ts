@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const CardWrapper = styled.div`
-  background-color: var(--color-bg);
+  background-color: var(--color-ui-base);
   color: var(--color-text);
   cursor: pointer;
   border-radius: var(--radius);
@@ -13,6 +13,7 @@ export const CardImage = styled.img`
   height: 200px;
   display: block;
   object-fit: cover;
+  object-position: center;
   border-top-left-radius: var(--radius);
   border-top-right-radius: var(--radius);
 `;

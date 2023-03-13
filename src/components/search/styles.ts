@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const InputWrapper = styled.label`
+export const SearchWrapper = styled.label`
   display: flex;
   align-items: center;
   background-color: var(--color-ui-base);
@@ -10,7 +10,7 @@ export const InputWrapper = styled.label`
   padding: 5px 20px;
 `;
 
-export const CustomInput = styled.input.attrs({
+export const SearchInput = styled.input.attrs({
   type: 'search',
   placeholder: 'Search for a country...',
 })`

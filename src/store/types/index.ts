@@ -1,9 +1,11 @@
-import { setCountries } from 'store/actions';
+import { setCountries, setCountryName } from 'store/actions';
 import { store } from 'store/index';
 
 export type RootState = ReturnType<typeof store.getState>;
 
-export type ActionType = ReturnType<typeof setCountries>
+export type ActionType =
+  | ReturnType<typeof setCountries>
+  | ReturnType<typeof setCountryName>;
 
 export type CountryType = {
   altSpellings: string[]

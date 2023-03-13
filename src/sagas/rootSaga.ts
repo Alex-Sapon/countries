@@ -1,8 +1,9 @@
 import { all, call, spawn } from 'redux-saga/effects';
 import { allCountriesWeather } from 'sagas/allCountriesSaga';
+import { searchByCountryWatcher } from 'sagas/searchByCountrySaga';
 
 export function* rootSaga() {
-  const sagas = [allCountriesWeather];
+  const sagas = [allCountriesWeather, searchByCountryWatcher];
 
   const retrySaga = sagas.map((saga) =>
     spawn(function* () {

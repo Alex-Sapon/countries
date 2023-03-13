@@ -9,7 +9,7 @@ export const api = {
   fetchAllCountries(): Promise<CountryType[]> {
     return instance.get('all?fields=name,capital,flags,population,region');
   },
-  fetchByCountry(name: string) {
+  fetchByCountry(name: string): Promise<CountryType[]> {
     return instance.get(`name/${name}`);
   },
   fetchByCode(codes: string[]) {
