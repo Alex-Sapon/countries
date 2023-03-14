@@ -5,6 +5,7 @@ import { Select } from 'components/select';
 import { ControlsWrapper } from './styles';
 
 export const Controls = () => {
+  
   return (
     <Container>
       <ControlsWrapper>

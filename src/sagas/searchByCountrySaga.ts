@@ -10,7 +10,7 @@ function* loadByCountry() {
 
   if (country) {
     const response: AxiosResponse<CountryType[]> = yield call(
-      api.fetchByCountry,
+      api.fetchByCountryName,
       country
     );
 

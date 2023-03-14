@@ -6,11 +6,12 @@ export const CardWrapper = styled.div`
   cursor: pointer;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+  text-decoration: none;
 `;
 
 export const CardImage = styled.img`
   width: 100%;
-  height: 200px;
+  height: 160px;
   display: block;
   object-fit: cover;
   object-position: center;

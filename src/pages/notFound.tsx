@@ -1,12 +1,13 @@
 import { PATH } from 'constants/paths';
 
+import { Container } from 'components/container/styles';
 import { Link } from 'react-router-dom';
 
 export const NotFound = () => {
   return (
-    <>
-      <h1>Not Found</h1>
+    <Container>
+      <h2>Not Found</h2>
       <Link to={PATH.HOME}>GO HOME</Link>
-    </>
+    </Container>
   );
 };

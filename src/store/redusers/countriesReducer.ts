@@ -2,7 +2,9 @@ import { ActionType, CountryType } from 'store/types';
 
 const initialState: StateType = {
   countries: [],
-  countryName: ''
+  country: {} as CountryType,
+  countryName: '',
+  region: ''
 };
 
 export const countriesReducer = (
@@ -14,6 +16,8 @@ export const countriesReducer = (
       return { ...state, countries: action.payload.countries };
     case 'LOAD_COUNTRY_BY_NAME':
       return { ...state, countryName: action.payload.countryName };
+    case 'CHANGE_REGION':
+      return { ...state, region: action.payload.region };
     default:
       return state;
   }
@@ -21,5 +25,7 @@ export const countriesReducer = (
 
 type StateType = {
   countries: CountryType[];
+  country: CountryType;
   countryName: string;
+  region: string;
 };

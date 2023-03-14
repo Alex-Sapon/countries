@@ -12,7 +12,7 @@ export const SearchWrapper = styled.label`
 
 export const SearchInput = styled.input.attrs({
   type: 'search',
-  placeholder: 'Search for a country...',
+  placeholder: 'Search for a details...',
 })`
   width: 100%;
   border: none;

@@ -1,14 +1,22 @@
 import { PATH } from 'constants/paths';
 
-import { Home } from 'pages/Home';
-import { NotFound } from 'pages/NotFound';
+import React from 'react';
+
+import { Header } from 'components/header';
+import { Details } from 'pages/details';
+import { Home } from 'pages/home';
+import { NotFound } from 'pages/notFound';
 import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
   return (
-    <Routes>
-      <Route path={PATH.HOME} element={<Home />} />
-      <Route path={PATH.NOT_FOUND} element={<NotFound />} />
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route path={PATH.HOME} element={<Home />} />
+        <Route path={PATH.DETAILS} element={<Details />} />
+        <Route path={PATH.NOT_FOUND} element={<NotFound />} />
+      </Routes>
+    </>
   );
 };

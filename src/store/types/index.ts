@@ -1,10 +1,11 @@
-import { setCountries, setCountryName } from 'store/actions';
+import { changeRegion, setCountries, setCountryName } from 'store/actions';
 import { store } from 'store/index';
 
 export type RootState = ReturnType<typeof store.getState>;
 
 export type ActionType =
   | ReturnType<typeof setCountries>
+  | ReturnType<typeof changeRegion>
   | ReturnType<typeof setCountryName>;
 
 export type CountryType = {
