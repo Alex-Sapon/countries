@@ -1,25 +1,19 @@
 import { ChangeEvent } from 'react';
 
 import { IoSearch } from 'react-icons/io5';
-import { useDispatch, useSelector } from 'react-redux';
-import { setCountryName } from 'store/actions';
-import { selectCountryName } from 'store/selectors';
+import { ControlsType } from 'store/types';
 
 import { SearchInput, SearchWrapper } from './styles';
 
-export const Search = () => {
-  const countryName = useSelector(selectCountryName);
-  
-  const dispatch = useDispatch();
-
+export const Search = ({ region, country, handleSearch }: ControlsType) => {
   const searchCountry = (event: ChangeEvent<HTMLInputElement>) => {
-    dispatch(setCountryName(event.currentTarget.value));
+    handleSearch(region, event.currentTarget.value);
   }
   
   return (
     <SearchWrapper>
       <IoSearch />
-      <SearchInput value={countryName} onChange={searchCountry} />
+      <SearchInput value={country} onChange={searchCountry} />
     </SearchWrapper>
   );
 };

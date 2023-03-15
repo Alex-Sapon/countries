@@ -14,6 +14,7 @@ export default defineConfig({
       sagas: '/src/sagas',
       api: '/src/api',
       utils: '/src/utils',
+      hooks: '/src/hooks',
     },
   },
 });

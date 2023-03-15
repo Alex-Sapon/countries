@@ -1,31 +1,35 @@
-import { ActionType, CountryType } from 'store/types';
+import { ActionType, CountriesStateType, CountryType } from 'store/types';
+import { searchCountry } from 'utils/searchCountry';
 
-const initialState: StateType = {
+const initialState: CountriesStateType = {
   countries: [],
+  filteredCountries: [],
   country: {} as CountryType,
   countryName: '',
-  region: ''
+  region: '',
 };
 
 export const countriesReducer = (
-  state: StateType = initialState,
-  action: ActionType
-) => {
+  state: CountriesStateType = initialState,
+  action: ActionType,
+): CountriesStateType => {
   switch (action.type) {
     case 'SET_COUNTRIES':
       return { ...state, countries: action.payload.countries };
     case 'LOAD_COUNTRY_BY_NAME':
       return { ...state, countryName: action.payload.countryName };
-    case 'CHANGE_REGION':
-      return { ...state, region: action.payload.region };
+    case 'FILTER_COUNTRIES':
+      return {
+        ...state,
+        region: action.payload.region,
+        countryName: action.payload.countryName,
+        filteredCountries: searchCountry(
+          state.countries,
+          action.payload.region,
+          action.payload.countryName
+        )
+      };
     default:
       return state;
   }
-};
-
-type StateType = {
-  countries: CountryType[];
-  country: CountryType;
-  countryName: string;
-  region: string;
 };

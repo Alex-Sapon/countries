@@ -12,9 +12,6 @@ export const api = {
   fetchByCountryName(name: string): Promise<CountryType[]> {
     return instance.get(`name/${name}`);
   },
-  fetchByRegion(region: string) {
-    return instance.get(`region${region}`);
-  },
   fetchByCode(codes: string[]) {
     return instance.get(`alpha?codes=${codes.join(',')}`);
   },

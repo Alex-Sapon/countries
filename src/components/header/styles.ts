@@ -1,5 +1,6 @@
 import { PATH } from 'constants/paths';
 
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
@@ -27,8 +28,8 @@ export const SwitchMode = styled.div`
   }
 `;
 
-export const Title = styled.a.attrs({
-  href: PATH.HOME,
+export const Title = styled(Link).attrs({
+  to: PATH.HOME,
 })`
   text-decoration: none;
   color: var(--color-text);
