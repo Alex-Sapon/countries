@@ -24,8 +24,7 @@
       "store/*": ["store/*"],
       "sagas/*": ["sagas/*"],
       "api/*": ["api/*"],
-      "utils/*": ["utils/*"],
-      "hooks/*": ["hooks/*"]
+      "utils/*": ["utils/*"]
     }
   },
   "include": [

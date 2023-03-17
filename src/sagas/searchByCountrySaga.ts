@@ -1,25 +1,31 @@
 import { api } from 'api/countries-api';
 import { AxiosResponse } from 'axios';
-import { call, debounce, put, select } from 'redux-saga/effects';
-import { loadAllCountries, setCountries } from 'store/actions';
-import { selectCountryName } from 'store/selectors';
-import { CountryType } from 'store/types';
+import { LOCATION_CHANGE } from 'redux-first-history';
+import { locationChangeAction } from 'redux-first-history/src/actions';
+import { fork, take, select, call, put } from 'redux-saga/effects';
+import { setCountry } from 'store/actions';
+import { selectPathname } from 'store/selectors';
+import { DetailsCountryType } from 'store/types';
+
+export type LocationChangeType = ReturnType<typeof locationChangeAction>;
 
 function* loadByCountry() {
-  const country: string = yield select(selectCountryName);
+  const name: string = yield select(selectPathname);
 
-  if (country) {
-    const response: AxiosResponse<CountryType[]> = yield call(
-      api.fetchByCountryName,
-      country
-    );
+  const response: AxiosResponse<DetailsCountryType[]> = yield call(
+    api.fetchByCountryName,
+    name.split('/')[2],
+  );
 
-    yield put(setCountries(response.data));
-  } else {
-    yield put(loadAllCountries());
-  }
+  yield put(setCountry(response.data[0]));
 }
 
 export function* searchByCountryWatcher() {
-  yield debounce(600, 'LOAD_COUNTRY_BY_NAME', loadByCountry);
+  while (true) {
+    const action: LocationChangeType = yield take(LOCATION_CHANGE);
+
+    if (action.payload.location.pathname.includes('country')) {
+      yield fork(loadByCountry);
+    }
+  }
 }

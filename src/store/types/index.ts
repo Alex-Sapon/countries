@@ -1,4 +1,4 @@
-import { filterCountries, setCountries, setCountryName } from 'store/actions';
+import { filterCountries, setCountries, setCountry, setCountryName } from 'store/actions';
 import { store } from 'store/index';
 
 export type RootState = ReturnType<typeof store.getState>;
@@ -6,13 +6,14 @@ export type RootState = ReturnType<typeof store.getState>;
 export type CountriesStateType = {
   countries: CountryType[];
   filteredCountries: CountryType[];
-  country: CountryType;
+  country: DetailsCountryType;
   countryName: string;
   region: string;
 };
 
 export type ActionType =
   | ReturnType<typeof setCountries>
+  | ReturnType<typeof setCountry>
   | ReturnType<typeof filterCountries>
   | ReturnType<typeof setCountryName>;
 
@@ -36,6 +37,50 @@ export type CountryType = {
   }
   population: number
   region: string
+}
+
+export type DetailsCountryType = {
+  altSpellings: string[]
+  borders: string[]
+  capital: string[]
+  currencies: {
+    EUR: {
+      name: string
+      symbol: string
+    }
+  }
+  flags: {
+    png: string
+    svg: string
+    alt: string
+  }
+  languages: {
+    deu: string
+    fra: string
+    nld: string
+  }
+  name: {
+    common: string
+    official: string
+    nativeName: {
+      deu: {
+        official: string
+        common: string
+      }
+      fra: {
+        official: string
+        common: string
+      }
+      nld: {
+        official: string
+        common: string
+      }
+    }
+  }
+  population: number
+  region: string
+  subregion: string
+  tld: string[]
 }
 
 export type OptionType = {

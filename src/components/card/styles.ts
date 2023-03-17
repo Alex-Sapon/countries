@@ -32,4 +32,8 @@ export const CardTitle = styled.h3`
 export const CardSubtitle = styled.p`
   margin-bottom: 5px;
   font-size: var(--fs-sm);
+  
+  b {
+    margin-right: 5px;
+  }
 `;

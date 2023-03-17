@@ -1,10 +1,10 @@
-import { ActionType, CountriesStateType, CountryType } from 'store/types';
+import { ActionType, CountriesStateType, DetailsCountryType } from 'store/types';
 import { searchCountry } from 'utils/searchCountry';
 
 const initialState: CountriesStateType = {
   countries: [],
   filteredCountries: [],
-  country: {} as CountryType,
+  country: {} as DetailsCountryType,
   countryName: '',
   region: '',
 };
@@ -16,8 +16,8 @@ export const countriesReducer = (
   switch (action.type) {
     case 'SET_COUNTRIES':
       return { ...state, countries: action.payload.countries };
-    case 'LOAD_COUNTRY_BY_NAME':
-      return { ...state, countryName: action.payload.countryName };
+    case 'SET_COUNTRY':
+      return { ...state, country: action.payload.country };
     case 'FILTER_COUNTRIES':
       return {
         ...state,
