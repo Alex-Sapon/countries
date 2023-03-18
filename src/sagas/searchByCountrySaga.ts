@@ -1,20 +1,17 @@
 import { api } from 'api/countries-api';
 import { AxiosResponse } from 'axios';
 import { LOCATION_CHANGE } from 'redux-first-history';
-import { locationChangeAction } from 'redux-first-history/src/actions';
-import { fork, take, select, call, put } from 'redux-saga/effects';
+import { call, fork, put, select, take } from 'redux-saga/effects';
 import { setCountry } from 'store/actions';
 import { selectPathname } from 'store/selectors';
-import { DetailsCountryType } from 'store/types';
-
-export type LocationChangeType = ReturnType<typeof locationChangeAction>;
+import { DetailsCountryType, LocationChangeType } from 'store/types';
 
 function* loadByCountry() {
   const name: string = yield select(selectPathname);
 
   const response: AxiosResponse<DetailsCountryType[]> = yield call(
     api.fetchByCountryName,
-    name.split('/')[2],
+    name.split('/')[2]
   );
 
   yield put(setCountry(response.data[0]));

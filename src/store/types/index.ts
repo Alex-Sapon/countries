@@ -1,4 +1,5 @@
-import { filterCountries, setCountries, setCountry, setCountryName } from 'store/actions';
+import { locationChangeAction } from 'redux-first-history/src/actions';
+import { filterCountries, setCountries, setCountry } from 'store/actions';
 import { store } from 'store/index';
 
 export type RootState = ReturnType<typeof store.getState>;
@@ -14,74 +15,73 @@ export type CountriesStateType = {
 export type ActionType =
   | ReturnType<typeof setCountries>
   | ReturnType<typeof setCountry>
-  | ReturnType<typeof filterCountries>
-  | ReturnType<typeof setCountryName>;
+  | ReturnType<typeof filterCountries>;
 
 export type CountryType = {
-  altSpellings: string[]
-  capital: string[]
+  altSpellings: string[];
+  capital: string[];
   flags: {
-    png: string
-    svg: string
-    alt: string
-  }
+    png: string;
+    svg: string;
+    alt: string;
+  };
   name: {
-    common: string
-    official: string
+    common: string;
+    official: string;
     nativeName: {
       hun: {
-        official: string
-        common: string
-      }
-    }
-  }
-  population: number
-  region: string
-}
+        official: string;
+        common: string;
+      };
+    };
+  };
+  population: number;
+  region: string;
+};
 
 export type DetailsCountryType = {
-  altSpellings: string[]
-  borders: string[]
-  capital: string[]
+  altSpellings: string[];
+  borders: string[];
+  capital: string[];
   currencies: {
     EUR: {
-      name: string
-      symbol: string
-    }
-  }
+      name: string;
+      symbol: string;
+    };
+  };
   flags: {
-    png: string
-    svg: string
-    alt: string
-  }
+    png: string;
+    svg: string;
+    alt: string;
+  };
   languages: {
-    deu: string
-    fra: string
-    nld: string
-  }
+    deu: string;
+    fra: string;
+    nld: string;
+  };
   name: {
-    common: string
-    official: string
+    common: string;
+    official: string;
     nativeName: {
       deu: {
-        official: string
-        common: string
-      }
+        official: string;
+        common: string;
+      };
       fra: {
-        official: string
-        common: string
-      }
+        official: string;
+        common: string;
+      };
       nld: {
-        official: string
-        common: string
-      }
-    }
-  }
-  population: number
-  region: string
-  subregion: string
-  tld: string[]
-}
+        official: string;
+        common: string;
+      };
+    };
+  };
+  population: number;
+  region: string;
+  subregion: string;
+  tld: string[];
+};
 
 export type OptionType = {
   label: string | number;
@@ -91,6 +91,8 @@ export type OptionType = {
 export type ControlsType = {
   region: string;
   country: string;
-  handleSearch: (regionName: string, countryName: string) => void
-  handleClose?: () => void
-}
+  handleSearch: (regionName: string, countryName: string) => void;
+  handleClose?: () => void;
+};
+
+export type LocationChangeType = ReturnType<typeof locationChangeAction>;

@@ -3,7 +3,7 @@ import { PATH } from 'constants/paths';
 import { Container } from 'components/container/styles';
 import { Link } from 'react-router-dom';
 
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <Container>
       <h2>Not Found</h2>
@@ -11,3 +11,5 @@ export const NotFound = () => {
     </Container>
   );
 };
+
+export default NotFound;

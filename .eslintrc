@@ -33,25 +33,22 @@
     "import/order": [
       "error",
       {
-        "pathGroupsExcludedImportTypes": [ "react" ],
-        "groups": [ "builtin", "external", "internal" ],
         "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["react"],
+        "alphabetize": { "order": "asc", "caseInsensitive": true },
+        "groups": ["builtin", "external", "parent", "sibling", "index"],
         "pathGroups": [
           {
-            "pattern": "{react,react-dom/**}",
+            "pattern": "react",
             "group": "external",
             "position": "before"
           }
-        ],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
+        ]
       }
-    ],
-    "prettier/prettier": [
-      "off",
-      { "endOfLine": "auto" }
     ]
+//    "prettier/prettier": [
+//      "off",
+//      { "endOfLine": "auto" }
+//    ]
   }
 }
