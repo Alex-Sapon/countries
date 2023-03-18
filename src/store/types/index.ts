@@ -1,5 +1,11 @@
 import { locationChangeAction } from 'redux-first-history/src/actions';
-import { filterCountries, setCountries, setCountry } from 'store/actions';
+import {
+  loading,
+  loadCountriesSuccess,
+  loadCountrySuccess,
+  loadCountriesFailure,
+  filterCountries,
+} from 'store/actions';
 import { store } from 'store/index';
 
 export type RootState = ReturnType<typeof store.getState>;
@@ -10,11 +16,15 @@ export type CountriesStateType = {
   country: DetailsCountryType;
   countryName: string;
   region: string;
+  loading: boolean;
+  error: null | string;
 };
 
 export type ActionType =
-  | ReturnType<typeof setCountries>
-  | ReturnType<typeof setCountry>
+  | ReturnType<typeof loading>
+  | ReturnType<typeof loadCountriesSuccess>
+  | ReturnType<typeof loadCountrySuccess>
+  | ReturnType<typeof loadCountriesFailure>
   | ReturnType<typeof filterCountries>;
 
 export type CountryType = {
@@ -39,7 +49,7 @@ export type CountryType = {
   region: string;
 };
 
-export type DetailsCountryType = {
+export type DetailsCountryResponseType = {
   altSpellings: string[];
   borders: string[];
   capital: string[];
@@ -81,6 +91,20 @@ export type DetailsCountryType = {
   region: string;
   subregion: string;
   tld: string[];
+};
+
+export type DetailsCountryType = {
+  img: { png: string; svg: string; alt: string };
+  name: string;
+  nativeName: string;
+  population: number;
+  region: string;
+  subregion: string;
+  capital: string;
+  topLevelDomain: string[];
+  currencies: string[];
+  languages: string[];
+  borders: string[] | string;
 };
 
 export type OptionType = {

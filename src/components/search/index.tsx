@@ -8,8 +8,8 @@ import { SearchInput, SearchWrapper } from './styles';
 export const Search = ({ region, country, handleSearch }: ControlsType) => {
   const searchCountry = (event: ChangeEvent<HTMLInputElement>) => {
     handleSearch(region, event.currentTarget.value);
-  }
-  
+  };
+
   return (
     <SearchWrapper>
       <IoSearch />

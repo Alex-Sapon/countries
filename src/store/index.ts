@@ -1,5 +1,10 @@
 import { createBrowserHistory } from 'history';
-import { applyMiddleware, combineReducers, compose, legacy_createStore as createStore } from 'redux';
+import {
+  applyMiddleware,
+  combineReducers,
+  compose,
+  legacy_createStore as createStore,
+} from 'redux';
 import { createReduxHistoryContext } from 'redux-first-history';
 import createSagaMiddleware from 'redux-saga';
 import { rootSaga } from 'sagas/rootSaga';
@@ -7,9 +12,10 @@ import { countriesReducer } from 'store/redusers/countriesReducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const { createReduxHistory, routerMiddleware, routerReducer } = createReduxHistoryContext({
-  history: createBrowserHistory(),
-});
+const { createReduxHistory, routerMiddleware, routerReducer } =
+  createReduxHistoryContext({
+    history: createBrowserHistory(),
+  });
 
 const composeEnhancers =
   (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
@@ -17,7 +23,7 @@ const composeEnhancers =
 export const store = createStore(
   combineReducers({
     countriesReducer,
-    router: routerReducer
+    router: routerReducer,
   }),
   composeEnhancers(applyMiddleware(routerMiddleware, sagaMiddleware))
 );

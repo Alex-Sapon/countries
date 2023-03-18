@@ -11,8 +11,8 @@ import {
 } from './styles';
 
 type CardType = {
-  country: CountryType
-}
+  country: CountryType;
+};
 
 export const Card = ({ country }: CardType) => {
   const { capital, region, population, flags, name } = country;
@@ -24,10 +24,17 @@ export const Card = ({ country }: CardType) => {
         <CardBody>
           <CardTitle>{name.common}</CardTitle>
           <CardSubtitle>
-            <b>Population:</b>{numberWithCommas(population)}
+            <b>Population:</b>
+            {numberWithCommas(population)}
           </CardSubtitle>
-          <CardSubtitle><b>Region:</b>{region}</CardSubtitle>
-          <CardSubtitle><b>Capital:</b>{capital}</CardSubtitle>
+          <CardSubtitle>
+            <b>Region:</b>
+            {region}
+          </CardSubtitle>
+          <CardSubtitle>
+            <b>Capital:</b>
+            {capital}
+          </CardSubtitle>
         </CardBody>
       </CardWrapper>
     </Link>

@@ -1,11 +1,7 @@
-import { Container } from 'components/container/styles';
+import { Details } from 'modules/details';
 
-const Details = () => {
-  return (
-    <Container>
-      <div>Details</div>
-    </Container>
-  );
+const DetailsPage = () => {
+  return <Details />;
 };
 
-export default Details;
+export default DetailsPage;

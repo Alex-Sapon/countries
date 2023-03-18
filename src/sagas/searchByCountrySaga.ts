@@ -1,20 +1,44 @@
 import { api } from 'api/countries-api';
-import { AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import { LOCATION_CHANGE } from 'redux-first-history';
 import { call, fork, put, select, take } from 'redux-saga/effects';
-import { setCountry } from 'store/actions';
+import {
+  loading,
+  loadCountrySuccess,
+  loadCountriesFailure,
+} from 'store/actions';
 import { selectPathname } from 'store/selectors';
-import { DetailsCountryType, LocationChangeType } from 'store/types';
+import { DetailsCountryResponseType, LocationChangeType } from 'store/types';
 
 function* loadByCountry() {
   const name: string = yield select(selectPathname);
 
-  const response: AxiosResponse<DetailsCountryType[]> = yield call(
-    api.fetchByCountryName,
-    name.split('/')[2]
-  );
+  yield put(loading());
 
-  yield put(setCountry(response.data[0]));
+  try {
+    const { data }: AxiosResponse<DetailsCountryResponseType[]> = yield call(
+      api.fetchByCountryName,
+      name.split('/')[2]
+    );
+
+    yield put(
+      loadCountrySuccess({
+        img: data[0].flags,
+        name: data[0].name.common,
+        nativeName: data[0].altSpellings[1],
+        population: data[0].population,
+        region: data[0].region,
+        subregion: data[0].subregion,
+        capital: data[0].capital[0],
+        topLevelDomain: data[0].tld,
+        currencies: Object.keys(data[0].currencies),
+        languages: Object.values(data[0].languages),
+        borders: data[0].borders,
+      })
+    );
+  } catch (error) {
+    yield put(loadCountriesFailure((error as AxiosError).message));
+  }
 }
 
 export function* searchByCountryWatcher() {

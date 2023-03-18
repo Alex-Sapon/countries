@@ -1,4 +1,8 @@
-import { ActionType, CountriesStateType, DetailsCountryType } from 'store/types';
+import {
+  ActionType,
+  CountriesStateType,
+  DetailsCountryType,
+} from 'store/types';
 import { searchCountry } from 'utils/searchCountry';
 
 const initialState: CountriesStateType = {
@@ -7,27 +11,33 @@ const initialState: CountriesStateType = {
   country: {} as DetailsCountryType,
   countryName: '',
   region: '',
+  loading: false,
+  error: null,
 };
 
 export const countriesReducer = (
   state: CountriesStateType = initialState,
-  action: ActionType,
+  action: ActionType
 ): CountriesStateType => {
   switch (action.type) {
-    case 'SET_COUNTRIES':
-      return { ...state, countries: action.payload.countries };
-    case 'SET_COUNTRY':
-      return { ...state, country: action.payload.country };
+    case 'LOAD_COUNTRIES_LOADING':
+      return { ...state, loading: true };
+    case 'LOAD_COUNTRIES_SUCCESS':
+      return { ...state, countries: action.payload.countries, loading: false };
+    case 'LOAD_COUNTRY_SUCCESS':
+      return { ...state, country: action.payload.country, loading: false };
+    case 'LOAD_COUNTRIES_FAILURE':
+      return { ...state, error: action.payload.error, loading: false };
     case 'FILTER_COUNTRIES':
       return {
         ...state,
         region: action.payload.region,
-        countryName: action.payload.countryName,
+        countryName: action.payload.country,
         filteredCountries: searchCountry(
           state.countries,
           action.payload.region,
-          action.payload.countryName
-        )
+          action.payload.country
+        ),
       };
     default:
       return state;

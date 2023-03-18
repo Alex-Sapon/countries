@@ -1,0 +1,67 @@
+import styled from 'styled-components';
+
+export const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 400px;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+`;
+
+export const Description = styled.div`
+  display: grid;
+  grid-template-rows: repeat(3, min-content);
+  gap: 40px;
+  align-content: center;
+`;
+
+export const Text = styled.article`
+  display: grid;
+  gap: 10px 30px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  font-weight: var(--fw-light);
+`;
+
+export const Title = styled.h3`
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+`;
+
+export const Subtitle = styled.div`
+  display: flex;
+  align-items: flex-start;
+  font-size: var(--fs-sm);
+
+  b {
+    min-width: fit-content;
+    margin-right: 8px;
+  }
+`;
+
+export const List = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(5, max-content);
+  gap: 15px;
+`;
+
+export const ItemList = styled.li`
+  list-style-type: none;
+  margin: 0;
+  padding: 5px 15px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  background-color: var(--color-ui-base);
+  transition: box-shadow 0.4s ease;
+
+  &:hover {
+    box-shadow: none;
+  }
+`;
