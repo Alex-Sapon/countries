@@ -46,9 +46,5 @@
         ]
       }
     ]
-//    "prettier/prettier": [
-//      "off",
-//      { "endOfLine": "auto" }
-//    ]
   }
 }
