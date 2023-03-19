@@ -8,6 +8,12 @@ export const SearchWrapper = styled.label`
   box-shadow: var(--shadow);
   max-width: 350px;
   padding: 5px 20px;
+  height: 45px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
 `;
 
 export const SearchInput = styled.input.attrs({

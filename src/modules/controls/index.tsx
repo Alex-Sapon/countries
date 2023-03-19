@@ -15,18 +15,14 @@ export const Controls = () => {
 
   const handleSearch = (regionName: string, countryName: string) => {
     dispatch(filterCountries(regionName, countryName));
-  }
+  };
 
   const handleClose = () => dispatch(filterCountries('', country));
-  
+
   return (
     <Container>
       <ControlsWrapper>
-        <Search
-          region={region}
-          country={country}
-          handleSearch={handleSearch}
-        />
+        <Search region={region} country={country} handleSearch={handleSearch} />
         <Select
           region={region}
           country={country}

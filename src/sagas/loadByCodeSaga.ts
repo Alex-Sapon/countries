@@ -13,7 +13,7 @@ function* loadByCodeSaga(action: ReturnType<typeof loadCountryByCode>) {
       action.payload.code
     );
 
-    if (response.status === 200) {
+    if (response.status === 200 && response.data[0].name.common) {
       yield put(push(response.data[0].name.common));
     }
   } catch (error) {

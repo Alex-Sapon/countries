@@ -8,6 +8,10 @@ import styled from 'styled-components';
 
 export const SelectWrapper = styled.div`
   position: relative;
+
+  @media (max-width: 768px) {
+    max-width: 250px;
+  }
 `;
 
 export const CustomSelect = styled(Select).attrs({
@@ -34,6 +38,7 @@ export const CustomSelect = styled(Select).attrs({
     }),
   },
 })`
+  height: 45px;
   font-size: var(--fs-sm);
   font-family: var(--family);
 
@@ -56,7 +61,7 @@ export const Close = styled(IoClose)`
   right: 50px;
   transform: translateY(-50%);
   color: #cccccc;
-  
+
   &:hover {
     color: #6e6e6f;
   }

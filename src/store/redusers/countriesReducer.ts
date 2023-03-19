@@ -21,11 +21,21 @@ export const countriesReducer = (
 ): CountriesStateType => {
   switch (action.type) {
     case 'LOAD_COUNTRIES_LOADING':
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: '' };
     case 'LOAD_COUNTRIES_SUCCESS':
-      return { ...state, countries: action.payload.countries, loading: false };
+      return {
+        ...state,
+        countries: action.payload.countries,
+        loading: false,
+        error: '',
+      };
     case 'LOAD_COUNTRY_SUCCESS':
-      return { ...state, country: action.payload.country, loading: false };
+      return {
+        ...state,
+        country: action.payload.country,
+        loading: false,
+        error: '',
+      };
     case 'LOAD_COUNTRIES_FAILURE':
       return { ...state, error: action.payload.error, loading: false };
     case 'FILTER_COUNTRIES':

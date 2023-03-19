@@ -5,6 +5,11 @@ export const Wrapper = styled.div`
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 70px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
 `;
 
 export const Image = styled.img`
@@ -13,6 +18,14 @@ export const Image = styled.img`
   display: block;
   object-fit: cover;
   object-position: center;
+
+  @media (max-width: 768px) {
+    height: 350px;
+  }
+
+  @media (max-width: 450px) {
+    height: 250px;
+  }
 `;
 
 export const Description = styled.div`
@@ -28,6 +41,11 @@ export const Text = styled.article`
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
   font-weight: var(--fw-light);
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(auto-fill, 1fr);
+  }
 `;
 
 export const Title = styled.h3`

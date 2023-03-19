@@ -5,4 +5,12 @@ export const ControlsWrapper = styled.div`
   grid-template-columns: 1fr 250px;
   padding-top: 130px;
   margin-bottom: 50px;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 450px) {
+    padding-top: 110px;
+  }
 `;
