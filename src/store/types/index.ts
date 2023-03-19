@@ -5,6 +5,7 @@ import {
   loadCountrySuccess,
   loadCountriesFailure,
   filterCountries,
+  loadCountryByCode,
 } from 'store/actions';
 import { store } from 'store/index';
 
@@ -17,7 +18,7 @@ export type CountriesStateType = {
   countryName: string;
   region: string;
   loading: boolean;
-  error: null | string;
+  error: string;
 };
 
 export type ActionType =
@@ -25,6 +26,7 @@ export type ActionType =
   | ReturnType<typeof loadCountriesSuccess>
   | ReturnType<typeof loadCountrySuccess>
   | ReturnType<typeof loadCountriesFailure>
+  | ReturnType<typeof loadCountryByCode>
   | ReturnType<typeof filterCountries>;
 
 export type CountryType = {

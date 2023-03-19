@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
+  align-items: center;
   gap: 70px;
 `;
 
@@ -18,12 +19,12 @@ export const Description = styled.div`
   display: grid;
   grid-template-rows: repeat(3, min-content);
   gap: 40px;
-  align-content: center;
+  align-items: center;
 `;
 
 export const Text = styled.article`
   display: grid;
-  gap: 10px 30px;
+  gap: 10px 20px;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(4, 1fr);
   font-weight: var(--fw-light);
@@ -36,7 +37,7 @@ export const Title = styled.h3`
 
 export const Subtitle = styled.div`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   font-size: var(--fs-sm);
 
   b {
@@ -46,8 +47,8 @@ export const Subtitle = styled.div`
 `;
 
 export const List = styled.ul`
-  display: grid;
-  grid-template-columns: repeat(5, max-content);
+  display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 `;
 

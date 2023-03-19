@@ -1,4 +1,3 @@
-import { AxiosError } from 'axios';
 import { CountryType, DetailsCountryType } from 'store/types';
 
 export const loading = () => {
@@ -13,8 +12,12 @@ export const loadCountrySuccess = (country: DetailsCountryType) => {
   return { type: 'LOAD_COUNTRY_SUCCESS', payload: { country } } as const;
 };
 
-export const loadCountriesFailure = (error: AxiosError) => {
+export const loadCountriesFailure = (error: string) => {
   return { type: 'LOAD_COUNTRIES_FAILURE', payload: { error } } as const;
+};
+
+export const loadCountryByCode = (code: string) => {
+  return { type: 'LOAD_COUNTRY_BY_CODE', payload: { code } } as const;
 };
 
 export const filterCountries = (region: string, country: string) => {

@@ -1,17 +1,20 @@
+import { MouseEvent } from 'react';
+
 import { Spinner } from 'components/spinner';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadCountryByCode } from 'store/actions';
 import { selectCountry, selectLoading } from 'store/selectors';
 import { numberWithCommas } from 'utils/numberWithCommas';
 
 import {
   Description,
   Image,
+  ItemList,
+  List,
   Subtitle,
+  Text,
   Title,
   Wrapper,
-  Text,
-  List,
-  ItemList,
 } from './styles';
 
 export const DetailsCard = () => {
@@ -30,6 +33,12 @@ export const DetailsCard = () => {
   } = useSelector(selectCountry);
 
   const loading = useSelector(selectLoading);
+
+  const dispatch = useDispatch();
+
+  const handleClick = (event: MouseEvent<HTMLLIElement>) => {
+    dispatch(loadCountryByCode(event.currentTarget.innerText));
+  };
 
   if (loading) return <Spinner />;
 
@@ -89,7 +98,9 @@ export const DetailsCard = () => {
           <List>
             {borders.length
               ? (borders as string[]).map((border) => (
-                  <ItemList key={border}>{border}</ItemList>
+                  <ItemList key={border} onClick={handleClick}>
+                    {border}
+                  </ItemList>
                 ))
               : 'No have borders'}
           </List>

@@ -2,13 +2,10 @@ import { api } from 'api/countries-api';
 import { AxiosError, AxiosResponse } from 'axios';
 import { LOCATION_CHANGE } from 'redux-first-history';
 import { call, fork, put, select, take } from 'redux-saga/effects';
-import {
-  loading,
-  loadCountrySuccess,
-  loadCountriesFailure,
-} from 'store/actions';
+import { loadCountrySuccess, loading } from 'store/actions';
 import { selectPathname } from 'store/selectors';
 import { DetailsCountryResponseType, LocationChangeType } from 'store/types';
+import { handleAppError } from 'utils/handleAppError';
 
 function* loadByCountry() {
   const name: string = yield select(selectPathname);
@@ -37,7 +34,7 @@ function* loadByCountry() {
       })
     );
   } catch (error) {
-    yield put(loadCountriesFailure((error as AxiosError).message));
+    yield put(handleAppError(error as AxiosError));
   }
 }
 

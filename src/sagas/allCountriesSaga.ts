@@ -1,15 +1,20 @@
 import { api } from 'api/countries-api';
-import { AxiosResponse } from 'axios';
+import { AxiosResponse, AxiosError } from 'axios';
 import { call, fork, put, takeEvery } from 'redux-saga/effects';
 import { loadCountriesSuccess } from 'store/actions';
 import { CountryType } from 'store/types';
+import { handleAppError } from 'utils/handleAppError';
 
 function* loadAllCountries() {
-  const response: AxiosResponse<CountryType[]> = yield call(
-    api.fetchAllCountries
-  );
+  try {
+    const response: AxiosResponse<CountryType[]> = yield call(
+      api.fetchAllCountries
+    );
 
-  yield put(loadCountriesSuccess(response.data));
+    yield put(loadCountriesSuccess(response.data));
+  } catch (error) {
+    yield put(handleAppError(error as AxiosError));
+  }
 }
 
 export function* allCountriesWeather() {

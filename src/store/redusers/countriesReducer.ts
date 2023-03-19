@@ -12,7 +12,7 @@ const initialState: CountriesStateType = {
   countryName: '',
   region: '',
   loading: false,
-  error: null,
+  error: '',
 };
 
 export const countriesReducer = (
