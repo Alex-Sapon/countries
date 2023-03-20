@@ -6,6 +6,7 @@ import {
   loadCountriesFailure,
   filterCountries,
   loadCountryByCode,
+  changeTheme,
 } from 'store/actions';
 import { store } from 'store/index';
 
@@ -21,12 +22,17 @@ export type CountriesStateType = {
   error: string;
 };
 
+export type AppStateType = {
+  theme: 'light' | 'dark';
+};
+
 export type ActionType =
   | ReturnType<typeof loading>
   | ReturnType<typeof loadCountriesSuccess>
   | ReturnType<typeof loadCountrySuccess>
   | ReturnType<typeof loadCountriesFailure>
   | ReturnType<typeof loadCountryByCode>
+  | ReturnType<typeof changeTheme>
   | ReturnType<typeof filterCountries>;
 
 export type CountryType = {

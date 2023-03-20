@@ -23,3 +23,7 @@ export const loadCountryByCode = (code: string) => {
 export const filterCountries = (region: string, country: string) => {
   return { type: 'FILTER_COUNTRIES', payload: { region, country } } as const;
 };
+
+export const changeTheme = () => {
+  return { type: 'CHANGE_APP_THEME' } as const;
+};

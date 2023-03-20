@@ -1,18 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import { Container } from 'components/container/styles';
 import { IoMoon, IoMoonOutline } from 'react-icons/io5';
-import { useDispatch } from 'react-redux';
-import { filterCountries } from 'store/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { filterCountries, changeTheme } from 'store/actions';
+import { selectAppTheme } from 'store/selectors';
 
 import { HeaderContainer, SwitchMode, Title, Wrapper } from './styles';
 
 export const Header = () => {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const theme = useSelector(selectAppTheme);
 
   const dispatch = useDispatch();
 
-  const changeTheme = () => setTheme(theme === 'light' ? 'dark' : 'light');
+  const handleChangeTheme = () => dispatch(changeTheme());
 
   const goHome = () => dispatch(filterCountries('', ''));
 
@@ -25,7 +26,7 @@ export const Header = () => {
       <Container>
         <Wrapper>
           <Title onClick={goHome}>Where is the world?</Title>
-          <SwitchMode onClick={changeTheme}>
+          <SwitchMode onClick={handleChangeTheme}>
             {theme === 'light' ? <IoMoon /> : <IoMoonOutline />}
             <span>{theme} Mode</span>
           </SwitchMode>

@@ -27,3 +27,7 @@ export const selectPathname = (state: RootState) => {
 export const selectLoading = (state: RootState) => {
   return state.countriesReducer.loading;
 };
+
+export const selectAppTheme = (state: RootState) => {
+  return state.appReducer.theme;
+};
