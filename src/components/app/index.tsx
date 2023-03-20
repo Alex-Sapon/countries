@@ -2,6 +2,7 @@ import { routes } from 'constants/routes';
 
 import React, { Suspense } from 'react';
 
+import { ButtonUp } from 'components/buttonUp';
 import { Header } from 'components/header';
 import { Spinner } from 'components/spinner';
 import { Route, Routes } from 'react-router-dom';
@@ -17,6 +18,7 @@ export const App = () => {
           ))}
         </Routes>
       </Suspense>
+      <ButtonUp />
     </>
   );
 };

@@ -1,10 +1,12 @@
-import { api } from 'api/countries-api';
+import { cacheTimeMs } from 'constants/cacheTimeMs';
+
 import { AxiosError, AxiosResponse } from 'axios';
 import { LOCATION_CHANGE } from 'redux-first-history';
 import { call, fork, put, select, take } from 'redux-saga/effects';
 import { loadCountrySuccess, loading } from 'store/actions';
 import { selectPathname } from 'store/selectors';
 import { DetailsCountryResponseType, LocationChangeType } from 'store/types';
+import { fetchCountryWithCache } from 'utils/fetchWithCache';
 import { handleAppError } from 'utils/handleAppError';
 
 function* loadByCountry() {
@@ -14,8 +16,9 @@ function* loadByCountry() {
 
   try {
     const { data }: AxiosResponse<DetailsCountryResponseType[]> = yield call(
-      api.fetchByCountryName,
-      name.split('/')[2]
+      fetchCountryWithCache,
+      name.split('/')[2],
+      cacheTimeMs
     );
 
     yield put(
