@@ -1,15 +1,7 @@
-import { PATH } from 'constants/paths';
+import { NotFound } from 'modules/notFound';
 
-import { Container } from 'components/container/styles';
-import { Link } from 'react-router-dom';
-
-const NotFound = () => {
-  return (
-    <Container>
-      <h2>Not Found</h2>
-      <Link to={PATH.HOME}>GO HOME</Link>
-    </Container>
-  );
+const NotFoundPage = () => {
+  return <NotFound />;
 };
 
-export default NotFound;
+export default NotFoundPage;

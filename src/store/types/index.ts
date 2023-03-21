@@ -1,4 +1,5 @@
 import { locationChangeAction } from 'redux-first-history/src/actions';
+import { store } from 'store';
 import {
   loading,
   loadCountriesSuccess,
@@ -8,7 +9,6 @@ import {
   loadCountryByCode,
   changeTheme,
 } from 'store/actions';
-import { store } from 'store/index';
 
 export type RootState = ReturnType<typeof store.getState>;
 

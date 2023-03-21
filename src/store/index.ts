@@ -33,6 +33,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'countries',
   storage,
+  whitelist: ['appReducer'],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

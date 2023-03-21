@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
 export const SpinnerContainer = styled.div`
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 425px;
-  padding-top: 20%;
 
   @media (max-width: 767.98px) {
     height: 651px;
