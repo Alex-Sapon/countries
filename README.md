@@ -17,4 +17,4 @@
 
 ## Demo
 
-[Link to demo](https://alex-sapon.github.io/country/)
+[Link to demo](https://alex-sapon.github.io/countries/)
