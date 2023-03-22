@@ -1,5 +1,5 @@
 export const PATH = {
-  HOME: '/home',
+  HOME: '/',
   DETAILS: 'country/:name',
   NOT_FOUND: '*',
 };
