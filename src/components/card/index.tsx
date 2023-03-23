@@ -18,7 +18,7 @@ export const Card = ({ country }: CardType) => {
   const { capital, region, population, flags, name } = country;
 
   return (
-    <Link to={`country/${name.common}`}>
+    <Link to={`/country/${name.common}`}>
       <CardWrapper>
         <CardImage src={flags.svg} alt={flags.alt} />
         <CardBody>
